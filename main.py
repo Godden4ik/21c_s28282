@@ -35,3 +35,13 @@ try:
     print("Task 5:", SquareGenerator().generate_squares(10, 1))
 except ValueError as e:
     print(e)
+
+# Task 8
+class CubicGenerator(SquareGenerator):
+    def generate_squares(self, start, end):
+        if end < start:
+            raise ValueError("End of range cannot be less than start.")
+        return [x**3 for x in range(start, end+1)]
+
+# Testing Task 8
+print("Task 8 (Cubic):", CubicGenerator().generate_squares(1, 5))

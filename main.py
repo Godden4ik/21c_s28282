@@ -47,6 +47,11 @@ try:
 except ValueError as e:
     print(e)
 
+# Testing Task 6 and 7
+    from package_module.square_generator import SquareGenerator
+    sg = SquareGenerator()
+    sg.generate_squares(1, 10)
+
 
 # Task 8
 class CubicGenerator(SquareGenerator):
@@ -57,14 +62,14 @@ class CubicGenerator(SquareGenerator):
 
 
 # Testing Task 8
-print("Task 8:", CubicGenerator().generate_squares(1, 5))
+print("Task 8:", CubicGenerator().generate_squares(1, 10))
 
 
 # Task 9
 class CubicGenerator(SquareGenerator):
     def generate_squares(self, start, end):
         if end < start:
-            raise ValueError("Task 9 (cubes):End of range cannot be less than start.")
+            raise ValueError("Task 9: (cubes) End of range cannot be less than start.")
         return [x ** 3 for x in range(start, end + 1)]
 
     def generate_squares(self, start, end):
@@ -78,3 +83,26 @@ try:
     print("Task 9 (Cubic):", CubicGenerator().generate_squares(10, 1))
 except ValueError as e:
     print(e)
+
+    # Task 10
+    from abc import ABC, abstractmethod
+
+
+    class SquareGenerator(ABC):
+        @abstractmethod
+        def generate_squares(self, start, end):
+            pass
+
+
+    class CubicGenerator(SquareGenerator):
+        def generate_squares(self, start, end):
+            if end < start:
+                raise ValueError("End of range cannot be less than start.")
+            return [x ** 3 for x in range(start, end + 1)]
+
+
+    # Testing Task 10
+    try:
+        print("Task 10: (сubic)", CubicGenerator().generate_squares(1, 10))
+    except ValueError as e:
+        print(e)

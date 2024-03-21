@@ -2,7 +2,6 @@
 squares = [x ** 2 for x in range(1, 11)]
 print("Task 1:", squares)
 
-
 # Task 2
 def generate_squares(start, end):
     return [x ** 2 for x in range(start, end + 1)]
